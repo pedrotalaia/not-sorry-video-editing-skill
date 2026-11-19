@@ -13,25 +13,27 @@ Read [the editing rules](references/editing-rules.md) before planning a new proj
 
 Inspect the supplied footage, `sources/`, `assets/`, `references/`, any `brief.md`, applicable `AGENTS.md` or `CLAUDE.md` instructions, and prior approved edits. Work with the user's existing structure rather than reorganizing it unnecessarily. Choose suitable tools yourself; do not require the user to name libraries or assume software is installed — check and install dependencies as described below.
 
+Separate reusable workflow from project identity. Use the current project's logo, fonts, references, and audience. Do not bring another project's footage, brand assets, or claims into a new project without instructions.
+
 ## Check and install dependencies
 
-Before editing, confirm that every tool and library the task needs is available. Typical requirements:
-
-- `ffmpeg` and `ffprobe` (cutting, cropping, audio cleanup, export, and the bundled checker)
-- `python3` (3.9+) for the bundled scripts and any helper scripts
-- A speech-to-text tool for transcription and subtitles, e.g. `faster-whisper` or `openai-whisper`
-- Python libraries for any advanced step you choose, e.g. `numpy`, `opencv-python`, `mediapipe` (face tracking, punch-ins, title-behind-head masks)
+> [!IMPORTANT]
+> Before editing, confirm that every tool and library the task needs is available. Typical requirements:
+>
+> - `ffmpeg` and `ffprobe` (cutting, cropping, audio cleanup, export, and the bundled checker)
+> - `python3` (3.9+) for the bundled scripts and any helper scripts
+> - A speech-to-text tool for transcription and subtitles, e.g. `faster-whisper` or `openai-whisper`
+> - Python libraries for any advanced step you choose, e.g. `numpy`, `opencv-python`, `mediapipe` (face tracking, punch-ins, title-behind-head masks)
 
 Check with commands such as `ffmpeg -version`, `ffprobe -version`, `python3 --version`, and `python3 -c "import faster_whisper"`.
 
-If anything is missing, install it instead of stopping or silently skipping the step:
-
-1. Python packages: create or reuse a project-local virtual environment and install there — `python3 -m venv .venv && .venv/bin/pip install <package>` — then run scripts with `.venv/bin/python`. Do not install into the system Python.
-2. System tools: use the platform package manager — `sudo pacman -S ffmpeg` (Arch), `sudo apt install ffmpeg` (Debian/Ubuntu), `brew install ffmpeg` (macOS), `winget install ffmpeg` (Windows).
-3. Tell the user what you are installing and why. If an install needs `sudo`/administrator rights you cannot provide, or it fails, show the exact command and ask the user to run it, then continue once it is available.
-4. Re-run the check to verify the install before continuing with the edit.
-
-Separate reusable workflow from project identity. Use the current project's logo, fonts, references, and audience. Do not bring another project's footage, brand assets, or claims into a new project without instructions.
+> [!WARNING]
+> If anything is missing, install it instead of stopping or silently skipping the step:
+>
+> 1. Python packages: create or reuse a project-local virtual environment and install there — `python3 -m venv .venv && .venv/bin/pip install <package>` — then run scripts with `.venv/bin/python`. Do not install into the system Python.
+> 2. System tools: use the platform package manager — `sudo pacman -S ffmpeg` (Arch), `sudo apt install ffmpeg` (Debian/Ubuntu), `brew install ffmpeg` (macOS), `winget install ffmpeg` (Windows).
+> 3. Tell the user what you are installing and why. If an install needs `sudo`/administrator rights you cannot provide, or it fails, show the exact command and ask the user to run it, then continue once it is available.
+> 4. Re-run the check to verify the install before continuing with the edit.
 
 ## Match the requested scope
 
