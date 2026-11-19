@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Editing"
+  short_description: "Turn source footage into polished Reels and shorts"
+  default_prompt: "Use $video-editing to review this project, recommend the strongest clips, and propose storyboards before editing."
