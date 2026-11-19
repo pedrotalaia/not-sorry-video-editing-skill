@@ -22,7 +22,9 @@ def main():
         parser.error(f'Video does not exist: {args.video}')
     for tool in ('ffprobe', 'ffmpeg'):
         if shutil.which(tool) is None:
-            parser.error(f'{tool} is required but unavailable.')
+            parser.error(f'{tool} is required but unavailable. Install ffmpeg '
+                         '(e.g. pacman -S ffmpeg / apt install ffmpeg / '
+                         'brew install ffmpeg / winget install ffmpeg).')
 
     def probe(*extra):
         result = subprocess.run(['ffprobe', '-v', 'error', *extra, '-of', 'json',
